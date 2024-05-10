@@ -1,0 +1,234 @@
+<!--
+  ~ Copyright 2013-2023, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+flowchart TB
+    subgraph " "
+    v0["Channel.fromPath"]
+    v4["reference"]
+    v5["annotation"]
+    v8["reference_genome"]
+    v13["annotation"]
+    v15["gtf"]
+    v17["gtf"]
+    v19["genome_fasta"]
+    v20["transcript_fasta"]
+    v53["samplesheet"]
+    v54["min_samps_gene_expr"]
+    v55["min_samps_feature_expr"]
+    v56["min_samps_feature_prop"]
+    v57["min_feature_expr"]
+    v58["min_feature_prop"]
+    v59["min_gene_expr"]
+    v68["drimseq_contrast_data"]
+    v69["ntop"]
+    v80["alignment_quality"]
+    v87["samplesheet"]
+    v88["contrastsheet"]
+    v89["ntop"]
+    end
+    v6([STAR_GENOMEGENERATE])
+    v7([FASTQC])
+    v9([CUSTOM_GETCHROMSIZES])
+    subgraph " "
+    v10[" "]
+    v11[" "]
+    v30["split_reads"]
+    v32[" "]
+    v33[" "]
+    v34[" "]
+    v35[" "]
+    v36[" "]
+    v37[" "]
+    v38[" "]
+    v39[" "]
+    v40[" "]
+    v41[" "]
+    v42[" "]
+    v43[" "]
+    v44[" "]
+    v45[" "]
+    v46[" "]
+    v47[" "]
+    v48[" "]
+    v49[" "]
+    v50[" "]
+    v51[" "]
+    v52[" "]
+    v61[" "]
+    v67[" "]
+    v71[" "]
+    v72[" "]
+    v73[" "]
+    v74[" "]
+    v75[" "]
+    v77[" "]
+    v91[" "]
+    v92[" "]
+    v93[" "]
+    v94[" "]
+    v95[" "]
+    v96[" "]
+    v98[" "]
+    v100[" "]
+    end
+    v12([TRIMGALORE])
+    v14([STAR_ALIGN])
+    v16([GFFREAD_TX2GENE])
+    v18([DEXSEQ_ANNOTATION])
+    v21([SALMON_GENOMEGENERATE])
+    v22([SALMON_QUANT])
+    v24([MERGE_RESULTS_SALMON])
+    subgraph FASTQSPLIT_HISAT2
+    v25([SPLIT_READS])
+    v26(( ))
+    end
+    v31([TXIMPORT])
+    v60([DRIMSEQ_FILTER])
+    v66([MULTIQC])
+    v70([DEXSEQ_DTU])
+    v76([SAMTOOLS])
+    v79([SAMTOOLS_MERGE_HISAT2])
+    v81([DEXSEQ_COUNT])
+    v83([MERGE_RESULTS_DEXSEQ])
+    v84([BEDTOOLS_GENOMECOV])
+    v85([BEDCLIP_REVERSE])
+    v86([BEDCLIP_FORWARD])
+    v90([DEXSEQ_EXON])
+    v97([BEDGRAPH_TO_BIGWIG_FORWARD])
+    v99([BEDGRAPH_TO_BIGWIG_REVERSE])
+    v1(( ))
+    v23(( ))
+    v62(( ))
+    v63(( ))
+    v64(( ))
+    v65(( ))
+    v78(( ))
+    v82(( ))
+    v0 --> v1
+    v4 --> v6
+    v5 --> v6
+    v6 --> v14
+    v1 --> v7
+    v7 --> v65
+    v8 --> v9
+    v9 --> v85
+    v9 --> v11
+    v9 --> v10
+    v9 --> v86
+    v9 --> v97
+    v9 --> v99
+    v1 --> v12
+    v12 --> v14
+    v12 --> v22
+    v12 --> v25
+    v12 --> v63
+    v13 --> v14
+    v14 --> v76
+    v14 --> v64
+    v15 --> v16
+    v16 --> v31
+    v17 --> v18
+    v18 --> v81
+    v18 --> v90
+    v19 --> v21
+    v20 --> v21
+    v21 --> v22
+    v22 --> v23
+    v22 --> v62
+    v23 --> v24
+    v24 --> v31
+    v25 --> v26
+    v26 --> v30
+    v31 --> v52
+    v31 --> v51
+    v31 --> v50
+    v31 --> v60
+    v31 --> v49
+    v31 --> v48
+    v31 --> v47
+    v31 --> v46
+    v31 --> v45
+    v31 --> v44
+    v31 --> v43
+    v31 --> v42
+    v31 --> v41
+    v31 --> v40
+    v31 --> v39
+    v31 --> v38
+    v31 --> v37
+    v31 --> v36
+    v31 --> v35
+    v31 --> v34
+    v31 --> v33
+    v31 --> v32
+    v53 --> v60
+    v54 --> v60
+    v55 --> v60
+    v56 --> v60
+    v57 --> v60
+    v58 --> v60
+    v59 --> v60
+    v60 --> v61
+    v60 --> v70
+    v62 --> v66
+    v63 --> v66
+    v64 --> v66
+    v65 --> v66
+    v66 --> v67
+    v68 --> v70
+    v69 --> v70
+    v70 --> v75
+    v70 --> v74
+    v70 --> v73
+    v70 --> v72
+    v70 --> v71
+    v76 --> v77
+    v76 --> v78
+    v78 --> v79
+    v79 --> v81
+    v79 --> v84
+    v80 --> v81
+    v81 --> v82
+    v82 --> v83
+    v83 --> v90
+    v84 --> v86
+    v84 --> v85
+    v85 --> v99
+    v86 --> v97
+    v87 --> v90
+    v88 --> v90
+    v89 --> v90
+    v90 --> v96
+    v90 --> v95
+    v90 --> v94
+    v90 --> v93
+    v90 --> v92
+    v90 --> v91
+    v97 --> v98
+    v99 --> v100
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>
